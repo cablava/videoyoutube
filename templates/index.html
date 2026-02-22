@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YT Subtitles | Herramienta Premium</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <main class="main-container">
+        <header class="header">
+            <h1>Subtítulos de YouTube</h1>
+            <p>Descarga subtítulos de YouTube</p>
+        </header>
+
+        <section class="form-card">
+            <div class="input-group">
+                <label for="videoUrl">URL del Video</label>
+                <input type="text" id="videoUrl" placeholder="Pega aquí la URL de YouTube (ej. https://youtu.be/...)"
+                    spellcheck="false">
+            </div>
+
+            <div class="input-group">
+                <label for="videoLang">Idioma de los Subtítulos</label>
+                <select id="videoLang" disabled>
+                    <option value="">Primero verifica el video...</option>
+                </select>
+            </div>
+
+            <div class="button-row">
+                <button id="verifyBtn" class="btn btn-verify">
+                    <span>🔍</span> Verificar Video
+                </button>
+                <button id="downloadBtn" class="btn btn-download" disabled>
+                    <span>⬇️</span> Descargar Subtítulos
+                </button>
+            </div>
+
+            <div id="errorMessage" class="error-msg"></div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="resultCard" class="result-section hidden">
+            <div class="result-header">Información del Video</div>
+            <div class="result-body">
+                <img id="videoThumbnail" src="" alt="Thumbnail">
+                <div class="video-details">
+                    <h3 id="videoTitle"></h3>
+                    <div class="video-meta">
+                        <span class="video-info-tag" id="videoAuthor"></span>
+                        <span class="video-info-tag" id="videoDuration"></span>
+                        <span class="video-info-tag" id="videoViews"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
